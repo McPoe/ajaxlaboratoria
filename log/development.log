@@ -1,0 +1,328 @@
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  select sqlite_version(*)
+  [1m[36m (3.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMusics (20161115153237)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "musics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "artist" varchar, "year" varchar, "genre" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161115153237"]]
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2016-11-20 20:14:35 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (7.6ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (118.6ms)
+Completed 200 OK in 834ms (Views: 775.7ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/assets/home.self-0d67d6553ec3721ceabd06ca021bd739a5b975fd1e1c71dc522da75a1faaa3aa.css?body=1" for ::1 at 2016-11-20 20:14:37 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-11-20 20:14:37 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-11-20 20:14:38 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-11-20 20:14:38 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-11-20 20:14:38 -0600
+
+
+Started GET "/assets/home.self-1e477c6237b47085baae30e87570e663fcb9d116b25221e6adbe50dfa4460fd2.js?body=1" for ::1 at 2016-11-20 20:14:38 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-11-20 20:14:38 -0600
+
+
+Started POST "/musics" for ::1 at 2016-11-20 20:35:59 -0600
+Processing by MusicsController#create as JSON
+  Parameters: {"title"=>"Celebrate", "artist"=>"Mika", "year"=>"", "genre"=>""}
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (24.4ms)[0m  INSERT INTO "musics" ("title", "artist", "year", "genre", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Celebrate"], ["artist", "Mika"], ["year", ""], ["genre", ""], ["created_at", "2016-11-21 02:35:59.738061"], ["updated_at", "2016-11-21 02:35:59.738061"]]
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (1.26ms)
+Completed 201 Created in 187ms (Views: 49.0ms | ActiveRecord: 29.8ms)
+
+
+Started POST "/musics" for ::1 at 2016-11-20 20:43:45 -0600
+Processing by MusicsController#create as JSON
+  Parameters: {"title"=>"Celebrate", "artist"=>"Mika", "year"=>"", "genre"=>""}
+  [1m[35m (2.6ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "musics" ("title", "artist", "year", "genre", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Celebrate"], ["artist", "Mika"], ["year", ""], ["genre", ""], ["created_at", "2016-11-21 02:43:45.707701"], ["updated_at", "2016-11-21 02:43:45.707701"]]
+  [1m[35m (4.8ms)[0m  commit transaction
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (0.82ms)
+Completed 201 Created in 38ms (Views: 4.2ms | ActiveRecord: 8.0ms)
+
+
+Started DELETE "/musics/2" for ::1 at 2016-11-20 20:43:47 -0600
+Processing by MusicsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"d3GkZGwTj7qobdEl/F83bsZkgB2DlOFBHoKbhinBez9/JrxYli2UH0eKLXoFQEm6HqMbWPVOyM0+trpaa2gGxQ==", "id"=>"2"}
+  [1m[36mMusic Load (0.3ms)[0m  [1mSELECT  "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "musics" WHERE "musics"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.4ms)[0m  commit transaction
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (0.86ms)
+Completed 200 OK in 117ms (Views: 1.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/musics" for ::1 at 2016-11-20 20:43:53 -0600
+Processing by MusicsController#index as HTML
+  [1m[36mMusic Load (0.2ms)[0m  [1mSELECT "musics".* FROM "musics"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Music::ActiveRecord_Relation (0.66ms)
+Completed 200 OK in 145ms (Views: 143.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 20:44:03 -0600
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (0.2ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 143ms (Views: 142.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:05:32 -0600
+Processing by HomeController#index as HTML
+  [1m[36mMusic Load (43.9ms)[0m  [1mSELECT "musics".* FROM "musics"[0m
+  Rendered home/index.html.erb within layouts/application (146.1ms)
+Completed 200 OK in 607ms (Views: 414.3ms | ActiveRecord: 43.9ms)
+
+
+Started GET "/musics" for ::1 at 2016-11-20 22:15:24 -0600
+Processing by MusicsController#index as HTML
+  [1m[35mMusic Load (45.7ms)[0m  SELECT "musics".* FROM "musics"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Music::ActiveRecord_Relation (30.87ms)
+Completed 200 OK in 293ms (Views: 192.9ms | ActiveRecord: 45.7ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:15:30 -0600
+Processing by HomeController#index as HTML
+  [1m[36mMusic Load (17.2ms)[0m  [1mSELECT "musics".* FROM "musics"[0m
+  Rendered home/index.html.erb within layouts/application (255.9ms)
+Completed 200 OK in 587ms (Views: 568.8ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:15:42 -0600
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (1.1ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 145ms (Views: 142.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:16:04 -0600
+Processing by HomeController#index as HTML
+  [1m[36mMusic Load (12.4ms)[0m  [1mSELECT "musics".* FROM "musics"[0m
+  Rendered home/index.html.erb within layouts/application (89.0ms)
+Completed 200 OK in 219ms (Views: 206.3ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:22:37 -0600
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (2.2ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (48.9ms)
+Completed 200 OK in 1684ms (Views: 1634.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/home.self-2ed5406e90d1faf3a101ce620428bdc8b55388df2aa45b154d90f5c1e1dbac6c.js?body=1" for ::1 at 2016-11-20 22:22:39 -0600
+
+
+Started POST "/musics" for ::1 at 2016-11-20 22:22:49 -0600
+Processing by MusicsController#create as JSON
+  Parameters: {"title"=>"Nananana", "artist"=>"Batman", "year"=>"", "genre"=>""}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (105.9ms)[0m  INSERT INTO "musics" ("title", "artist", "year", "genre", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Nananana"], ["artist", "Batman"], ["year", ""], ["genre", ""], ["created_at", "2016-11-21 04:22:49.428339"], ["updated_at", "2016-11-21 04:22:49.428339"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (21.24ms)
+Completed 201 Created in 238ms (Views: 60.3ms | ActiveRecord: 109.8ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:24:00 -0600
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (0.4ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (141.7ms)
+Completed 200 OK in 7565ms (Views: 7563.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/home.self-8e0860ecda14224561c72104b66fa336a4b0e605da5f4b0baa54a4e9fc619ee1.js?body=1" for ::1 at 2016-11-20 22:24:08 -0600
+
+
+Started POST "/musics" for ::1 at 2016-11-20 22:25:57 -0600
+Processing by MusicsController#create as JSON
+  Parameters: {"title"=>"Batman", "artist"=>"nklancalks", "year"=>"", "genre"=>""}
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (27.7ms)[0m  INSERT INTO "musics" ("title", "artist", "year", "genre", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Batman"], ["artist", "nklancalks"], ["year", ""], ["genre", ""], ["created_at", "2016-11-21 04:25:57.684865"], ["updated_at", "2016-11-21 04:25:57.684865"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (1.02ms)
+Completed 201 Created in 60ms (Views: 7.0ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:28:22 -0600
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (0.5ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (43.9ms)
+Completed 200 OK in 812ms (Views: 809.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/home.self-e8239f062ad232da41b4620f5ce3c6c8ef5a11c514ea4215d2a25168f5fc7860.js?body=1" for ::1 at 2016-11-20 22:28:23 -0600
+
+
+Started POST "/musics" for ::1 at 2016-11-20 22:28:30 -0600
+Processing by MusicsController#create as JSON
+  Parameters: {"title"=>"nklNMXLK", "artist"=>"ncklancsa", "year"=>"", "genre"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (32.8ms)[0m  INSERT INTO "musics" ("title", "artist", "year", "genre", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "nklNMXLK"], ["artist", "ncklancsa"], ["year", ""], ["genre", ""], ["created_at", "2016-11-21 04:28:30.243832"], ["updated_at", "2016-11-21 04:28:30.243832"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (0.91ms)
+Completed 201 Created in 127ms (Views: 1.8ms | ActiveRecord: 36.8ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:30:53 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (6.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (14.4ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (1117.5ms)
+Completed 200 OK in 2689ms (Views: 2345.3ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/assets/home.self-c7fae67fa756b99bdf7bf7af9d6875ebd4cfe3080dc15d1f4931515a6e5c2e39.js?body=1" for ::1 at 2016-11-20 22:31:00 -0600
+
+
+Started GET "/" for ::1 at 2016-11-20 22:36:09 -0600
+Processing by HomeController#index as HTML
+  [1m[36mMusic Load (0.8ms)[0m  [1mSELECT "musics".* FROM "musics"[0m
+  Rendered home/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 538ms (Views: 522.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/home.self-e3684bb5f50a44c2a1445433aa954f95011fbaa706d4638e8de2dc17ec26ce00.js?body=1" for ::1 at 2016-11-20 22:36:09 -0600
+
+
+Started POST "/musics" for ::1 at 2016-11-20 22:36:16 -0600
+Processing by MusicsController#create as JSON
+  Parameters: {"title"=>"abueita", "artist"=>"soy tu nieto", "year"=>"", "genre"=>""}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (16.6ms)[0m  [1mINSERT INTO "musics" ("title", "artist", "year", "genre", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "abueita"], ["artist", "soy tu nieto"], ["year", ""], ["genre", ""], ["created_at", "2016-11-21 04:36:16.889566"], ["updated_at", "2016-11-21 04:36:16.889566"]]
+  [1m[35m (6.0ms)[0m  commit transaction
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (0.94ms)
+Completed 201 Created in 143ms (Views: 58.0ms | ActiveRecord: 22.8ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:37:05 -0600
+Processing by HomeController#index as HTML
+  [1m[36mMusic Load (0.5ms)[0m  [1mSELECT "musics".* FROM "musics"[0m
+  Rendered home/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 401ms (Views: 398.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/home.self-24adb490d7b63653d1cb116f2a6ca543bd14eb8ed50d7f6bc21b2208c58caac7.js?body=1" for ::1 at 2016-11-20 22:37:06 -0600
+
+
+Started GET "/" for ::1 at 2016-11-20 22:38:01 -0600
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (0.2ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 244ms (Views: 242.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/home.self-3aefbf3ed91ba3c876f11d539069c053ec5033efa512fdaf758a4676a44ad93a.js?body=1" for ::1 at 2016-11-20 22:38:01 -0600
+
+
+Started POST "/musics" for ::1 at 2016-11-20 22:38:07 -0600
+Processing by MusicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VP6XRpIf5hd9vtpkrkJw00dc3lsr3lgw306p0ucIC7xcqY96aCH9spJZJjtXXQ4Hn5tFHl0Ecbz/eogOpaF2Rg==", "music"=>{"title"=>"njanx", "artist"=>"nancjjnsa", "year"=>"", "genre"=>""}, "commit"=>"Create Music"}
+Unpermitted parameters: utf8, authenticity_token, music, commit
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (28.9ms)[0m  INSERT INTO "musics" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-11-21 04:38:07.677318"], ["updated_at", "2016-11-21 04:38:07.677318"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (0.37ms)
+Completed 201 Created in 40ms (Views: 1.5ms | ActiveRecord: 32.8ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:38:12 -0600
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (0.4ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 112ms (Views: 111.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/musics" for ::1 at 2016-11-20 22:38:18 -0600
+Processing by MusicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rT6BHa80G5ck31uv6aMSWbQ3SO0AomikW3zsKE6pJrelaZkhVQoAMss4p/AQvGyNbPDTqHZ4QSh7SM30DABbTQ==", "music"=>{"title"=>"lalala", "artist"=>"nanana", "year"=>"", "genre"=>""}, "commit"=>"Create Music"}
+Unpermitted parameters: utf8, authenticity_token, music, commit
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "musics" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-11-21 04:38:18.282149"], ["updated_at", "2016-11-21 04:38:18.282149"]]
+  [1m[36m (69.6ms)[0m  [1mcommit transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (0.53ms)
+Completed 201 Created in 74ms (Views: 1.5ms | ActiveRecord: 70.0ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:38:40 -0600
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (0.6ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 207ms (Views: 205.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/home.self-32e4f892dbed9804ad5416e38e6d969d634836011ad7e5e6e0bfada059a7e94a.js?body=1" for ::1 at 2016-11-20 22:38:41 -0600
+
+
+Started POST "/musics" for ::1 at 2016-11-20 22:38:48 -0600
+Processing by MusicsController#create as JSON
+  Parameters: {"title"=>"jbjhb ", "artist"=>"bhjbkhj", "year"=>"", "genre"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "musics" ("title", "artist", "year", "genre", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "jbjhb "], ["artist", "bhjbkhj"], ["year", ""], ["genre", ""], ["created_at", "2016-11-21 04:38:48.457222"], ["updated_at", "2016-11-21 04:38:48.457222"]]
+  [1m[36m (37.0ms)[0m  [1mcommit transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (0.56ms)
+Completed 201 Created in 42ms (Views: 1.6ms | ActiveRecord: 37.4ms)
+
+
+Started GET "/" for ::1 at 2016-11-20 22:42:08 -0600
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (38.4ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (62.5ms)
+Completed 200 OK in 820ms (Views: 743.0ms | ActiveRecord: 38.4ms)
+
+
+Started GET "/assets/home.self-0d67d6553ec3721ceabd06ca021bd739a5b975fd1e1c71dc522da75a1faaa3aa.css?body=1" for ::1 at 2016-11-20 22:42:10 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-11-20 22:42:10 -0600
+
+
+Started GET "/assets/home.self-aae611ee4a5a138602627afb811265cba315ac18f35f172608c37551d7892c76.js?body=1" for ::1 at 2016-11-20 22:42:10 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-11-20 22:42:10 -0600
+
+
+Started POST "/musics" for ::1 at 2016-11-20 22:42:17 -0600
+Processing by MusicsController#create as JSON
+  Parameters: {"title"=>"nkjn", "artist"=>"bbuob", "year"=>"", "genre"=>""}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (39.8ms)[0m  INSERT INTO "musics" ("title", "artist", "year", "genre", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "nkjn"], ["artist", "bbuob"], ["year", ""], ["genre", ""], ["created_at", "2016-11-21 04:42:17.519468"], ["updated_at", "2016-11-21 04:42:17.519468"]]
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (1.49ms)
+Completed 201 Created in 58ms (Views: 3.1ms | ActiveRecord: 46.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for ::1 at 2016-11-20 22:55:36 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mMusic Load (15.6ms)[0m  SELECT "musics".* FROM "musics"
+  Rendered home/index.html.erb within layouts/application (269.4ms)
+Completed 200 OK in 1219ms (Views: 1062.6ms | ActiveRecord: 16.8ms)
+
+
+Started POST "/musics" for ::1 at 2016-11-20 22:55:47 -0600
+Processing by MusicsController#create as JSON
+  Parameters: {"title"=>"napasa", "artist"=>"kcnalksc", "year"=>"ncklasca", "genre"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "musics" ("title", "artist", "year", "genre", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "napasa"], ["artist", "kcnalksc"], ["year", "ncklasca"], ["genre", ""], ["created_at", "2016-11-21 04:55:47.636115"], ["updated_at", "2016-11-21 04:55:47.636115"]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Music (0.65ms)
+Completed 201 Created in 121ms (Views: 58.9ms | ActiveRecord: 4.8ms)
